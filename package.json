@@ -1,4 +1,5 @@
 {
+  "start": "node app.js",
   "name": "misha",
   "version": "0.0.0",
   "private": true,
