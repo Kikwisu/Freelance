@@ -1,0 +1,39 @@
+block header
+  nav.black
+    a(href="#" data-activates="slide-out" class="button-collapse show-on-large")
+      i.material-icons menu
+    ul(id="nav-mobile" class="hide-on-med-and-down")
+      li
+        a.privateOffice#notification(class="waves-effect" href="#!")
+          i.material-icons notifications
+
+  ul(id="slide-out" class="side-nav")
+    li
+      div.user-view#userNickname
+        if(person !== null)
+          span.black-text.name= person.name
+          span.black-text.email= person.email
+        else
+          a(class="waves-effect waves-light modal-trigger black-text" href="#enterToAccModal") Войти в аккаунт
+    if(person !== null)
+      li
+        a#index(class="waves-effect" href="#!") На главную
+      li
+        a.privateOffice(class="waves-effect" href="#!") Личный кабинет
+      if(person.permissions > 0)
+        li
+          a#moderPanel(class="waves-effect" href="#!") Модерация заказов
+        if(person.permissions === 2)
+          li
+            a#adminPanel(class="waves-effect" href="#!") Админ-панель
+    li
+      div.divider
+    if(person !== null)
+      li
+        a#settings(class="waves-effect" href="#!")
+          i.material-icons settings
+          | настройки
+      li
+        a#exit(class="waves-effect" href="#!")
+          i.material-icons exit_to_app
+          | выйти

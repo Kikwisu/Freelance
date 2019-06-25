@@ -1,0 +1,39 @@
+div.row
+  div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+    form.col.s12(method="POST" action="/reqOfOrders/add" id="reqOfOrdersAddForm")
+      div.row
+        div.input-field.col.s10.push-s1.xl3.push-xl1
+          div.select-wrapper
+            select(name='label' class="label")
+              option(disabled selected) Выберете марку
+              -for(let car of Cars)
+                option(value=car.label)= car.label
+            label Марка
+        div.input-field.col.s10.push-s1.xl3.push-xl1
+          div.select-wrapper
+            select(name='model' id="model" disabled)
+              option(disabled selected) Выберете модель
+            label Модель
+        div.input-field.col.s10.push-s1.xl2.push-xl1
+          input.validate#year(type="text" name="year")
+          label(for="year") Год выпуска
+        div.input-field.col.s10.push-s1.xl2.push-xl1
+          input.validate#vin(type="text" name="vin")
+          label(for="vin") Vin - номер
+        div.input-field.col.s10.push-s1.xl3.push-xl1
+          input.validate#phoneForOrder(type="tel" name="phone")
+          label(for="phoneForOrder") Телефон
+        div.input-field.col.s10.push-s1.xl3.push-xl1
+          div.select-wrapper
+            select(name='city' id="cityAdmin")
+              option(disabled selected) Выберете город
+              -for(let city of Cities)
+                option(value=city)= city
+            label Город
+        div.input-field.col.s10.push-s1.xl10.push-xl1
+          textarea.materialize-textarea#details(type="text" name="details")
+          label(for="details") Перечислите необходимые детали
+
+        div.input-field.col.s12.xl8.push-xl6.center
+          input.validate(type="submit" class="btn waves-effect black waves-light" value="Сделать заказ")
+

@@ -1,0 +1,21 @@
+.tabs .indicator{
+    background-color:black;/*your color*/
+}
+
+form{
+    margin-top: 20px;
+}
+
+/* label underline focus color */
+.input-field input[type=password]:focus, input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus{
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field input[type=text]:focus + label, input[type=password]:focus + label, input[type=email]:focus + label, input[type=tel]:focus + label {
+    color: #000 !important;
+}
+
+.card{
+    margin-top: 70px;
+}

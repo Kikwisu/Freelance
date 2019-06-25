@@ -1,0 +1,23 @@
+div.row
+    div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+        div.col.s12.l12.card-content
+            h5 Поступаюшие заказы
+        div.col.s12.l12.card-content
+            form.col.s12(method="POST" action="/privateOffice/getOrdersByQuery" id="getOrdersByQueryPrivateForm")
+                div.row
+                    div.input-field.col.s3
+                        input.datepicker(type="date" name="date" placeholder='Дата создания заказа')
+                    div.input-field.col.s12
+                        input.validate(type="tel" name="phone" placeholder='Telephone')
+                    div.input-field.col.s12
+                        input(type="submit" class="btn waves-effect waves-light" value="Получить заказы")
+        div.col.s12.l12.card-content#ordersForAdmin
+
+    div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+        div.col.s12.l12.card-content
+            h5 Статистика
+        div.col.s12.l12.card-content
+            form.col.s12(method="POST" action="/privateOffice/getStats" id="getStatisticForm")
+                div.row
+                        input(type="submit" class="btn waves-effect waves-light" value="Получить статистику")
+        div.col.s12.l12.card-content#stats

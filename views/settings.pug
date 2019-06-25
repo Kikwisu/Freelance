@@ -1,0 +1,27 @@
+div.row
+  div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+    div.col.s12.l12.card-content
+      h5 Изменить данные
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/privateOffice/changeSettings" id="changeDataForm")
+        div.row
+          div.input-field.col.s12
+            input.validate(type="text" name="name" value= person.name placeholder='Name')
+          div.input-field.col.s12
+            input.validate(type="tel" name="phone" value= person.phone placeholder='Telephone')
+          div.input-field.col.s10
+            textarea.materialize-textarea(type="text" name="addresses" placeholder='Адреса магазинов')= person.addresses
+          div.input-field.col.s2
+            input(type="submit" class="btn waves-effect waves-light" value="Сохранить")
+
+  div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+    div.col.s12.l12.card-content
+      h5 Изменить пароль
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/auth/changePassSendMail" id="changePassSendMailFormTwo")
+        div.row
+          div.input-field.col.s12
+            input.validate#password4(type="password" name="password")
+            label(for="password4") Новый пароль
+          div.input-field.col.s2
+            input(type="submit" class="btn waves-effect waves-light" value="Изменить пароль")

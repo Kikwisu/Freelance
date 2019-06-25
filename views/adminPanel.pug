@@ -1,0 +1,99 @@
+div.row
+  div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+    div.col.s12.l12.card-content
+      h5 Пользователи
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/admin/getUsersByQuery" id="getUsersByQueryForm")
+        div.row
+          div.input-field.col.s3
+            input.datepicker(type="date" name="date" placeholder='Дата создания аккаунта')
+          div.input-field.col.s12
+            input.validate(type="tel" name="phone" placeholder='Telephone')
+          div.input-field.col.s12
+            input.validate(type="text" name="email" placeholder="email")
+          div.input-field.col.s2
+            input(type="submit" class="btn waves-effect waves-light" value="Получить пользователей")
+    div.col.s12.l12.card-content#usersForAdmin
+
+  div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+    div.col.s12.l12.card-content
+      h5 Поступаюшие заказы
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/admin/getOrdersByQuery" id="getOrdersByQueryForm")
+        div.row
+          div.input-field.col.s3
+            input.datepicker(type="date" name="date" placeholder='Дата создания заказа')
+          div.input-field.col.s12
+            input.validate(type="tel" name="phone" placeholder='Telephone')
+          div.input-field.col.s12
+            input(type="submit" class="btn waves-effect waves-light" value="Получить заказы")
+    div.col.s12.l12.card-content#ordersForAdmin
+
+  div.card.col.s10.push-s1.xl8.push-xl2.z-depth-5
+    div.col.s12.l12.card-content
+      h5 Настройка формы заказов
+    div.col.s12.l12.card-content
+      div.select-wrapper
+        h5 Города:
+        select(name='city' id="cityAdmin")
+          option(disabled selected) Выберете город
+          -for(let city of Cities)
+            option(value=city)= city
+        label Чтобы посмотреть результат, после добавления перезагрузите страницу
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/admin/addCity" id="addCitiesForm")
+        div.row
+          div.input-field.col.s3
+            input.validate(type="text" name="city" placeholder='Введите город')
+          div.input-field.col.s3
+            input(type="submit" class="btn waves-effect waves-light" value="Добавить город ")
+      form.col.s12(method="POST" action="/admin/removeCity" id="removeCitiesForm")
+        div.row
+          div.input-field.col.s3
+            input.validate(type="text" name="city" placeholder='Введите город')
+          div.input-field.col.s3
+            input(type="submit" class="btn waves-effect waves-light" value="Удалить город ")
+    div.col.s12.l12.card-content
+      div.select-wrapper
+        h5 Марка:
+        select(name='label' class="label")
+          option(disabled selected) Выберете марку
+           -for(let car of Cars)
+             option(value=car.label)= car.label
+        label Чтобы посмотреть результат, после добавления перезагрузите страницу
+      div.select-wrapper
+        h5 Модель:
+        select(name='model' id="model" disabled)
+          option(disabled selected) Выберете модель
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/admin/addLabel" id="addLabelForm")
+        div.row
+          div.input-field.col.s3
+            input.validate(type="text" name="label" placeholder='Введите марку')
+          div.input-field.col.s3
+            input(type="submit" class="btn waves-effect waves-light" value="Добавить марку ")
+      form.col.s12(method="POST" action="/admin/removeLabel" id="removeLabelForm")
+        div.row
+          div.input-field.col.s3
+            input.validate(type="text" name="label" placeholder='Введите марку')
+          div.input-field.col.s3
+            input(type="submit" class="btn waves-effect waves-light" value="Удалить марку ")
+
+    div.col.s12.l12.card-content
+      form.col.s12(method="POST" action="/admin/addModel" id="addModelForm")
+        div.row
+          div.input-field.col.s3
+            input.validate(type="text" name="label" placeholder='Введите марку')
+          div.input-field.col.s3
+            input.validate(type="text" name="model" placeholder='Введите модель')
+          div.input-field.col.s3
+            input(type="submit" class="btn waves-effect waves-light" value="Добавить модель ")
+      form.col.s12(method="POST" action="/admin/removeModel" id="removeModelForm")
+        div.row
+          div.input-field.col.s3
+            input.validate(type="text" name="label" placeholder='Введите марку')
+          div.input-field.col.s3
+            input.validate(type="text" name="модель" placeholder='Введите модель')
+          div.input-field.col.s3
+            input(type="submit" class="btn waves-effect waves-light" value="Удалить модель ")
+

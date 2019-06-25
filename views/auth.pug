@@ -1,0 +1,96 @@
+block auth
+    div(id="enterToAccModal" class="modal modal-fixed-footer")
+        div.modal-content
+            div.row
+                div.col.s12
+                    ul.tabs
+                        li.tab.col.s6
+                            a(class="black-text" href="#showLoginForm") Войти
+                        li.tab.col.s6
+                            a(class="black-text" href="#showRegForm") Регистрация
+                div.col.s12#showLoginForm
+                    form.col.s12(method="POST" action="/auth/login" id="loginForm")
+                        div.row
+                            div.input-field.col.s12
+                                input.validate#login(type="text" name="login")
+                                label(for="login") email/phone
+                            div.input-field.col.s12
+                                input.validate#password1(type="password" name="password")
+                                label(for="password1") password
+                            div.input-field.col.s10
+                                a(class="waves-effect waves-orange orange btn modal-trigger" href="#regainPassModal") Восстановить пароль
+                            div.input-field.col.s2
+                                input(type="submit" class="btn waves-effect waves-light" value="Войти")
+
+
+                div.col.s12#showRegForm
+                    form.col.s12(method="POST" action="/auth/register" id="regForm")
+                        div.row
+                            div.input-field.col.s12
+                                input.validate#phone(type="tel" name="phone")
+                                label(for="phone") Telephone
+                            div.input-field.col.s12
+                                input.validate#email(type="email" name="email")
+                                label(for="email") Email
+                            div.input-field.col.s12
+                                input.validate#name(type="text" name="name")
+                                label(for="name") Имя
+                            div.input-field.col.s12
+                                input.validate#password2(type="password" name="password")
+                                label(for="password2") password
+                            div.input-field.col.s2
+                                input(type="submit" class="btn waves-effect waves-light" value="зарегистрироваться")
+
+        div.modal-footer
+            a(class="modal-action modal-close waves-effect red btn") Отмена
+
+    div.modal#regainPassModal
+        div.modal-content
+            h4 Восстановление пароля
+            div.col.s12
+                form.col.s12(method="POST" action="/auth/changePassSendMail" id="changePassSendMailFormOne")
+                    div.row
+                        div.input-field.col.s12
+                            input.validate#email2(type="text" name="email")
+                            label(for="email2") email
+                        div.input-field.col.s12
+                            input.validate#password3(type="password" name="password")
+                            label(for="password3") Новый пароль
+                        div.input-field.col.s2
+                            input(type="submit" class="btn waves-effect waves-light" value="Восстановить пароль")
+        div.modal-footer
+            a(class="modal-action modal-close waves-effect red btn") Отмена
+
+    div.modal#showResultModal
+        div.modal-content
+            h5
+        div.modal-footer
+            a(class="modal-action modal-close waves-effect waves-red red btn") OK
+
+    div.modal#writeHashOneModel
+        div.modal-content
+            h4 Подтверждение по Email
+            p Для подтверждения аккаунта введите код с вашего email
+            div.col.s12
+                form.col.s12(method="POST" action="/auth/checkHash" id="writeHashFormOne")
+                    div.input-field.col.s12
+                        input.validate#writeHashOne(type="text" name="hash")
+                        label(for="writeHashOne") Код
+                    div.input-field.col.s2
+                        input(type="submit" class="btn waves-effect waves-light" value="подтвердить")
+        div.modal-footer
+            a(class="modal-action modal-close waves-effect waves-red btn-flat") OK
+
+    div.modal#writeHashRegainPassModal
+        div.modal-content
+            h4 Подтверждение по Email
+            p Для смены пароля введите код с вашего email
+            div.col.s12
+                form.col.s12(method="POST" action="/auth/checkHashChangePass" id="writeHashFormTwo")
+                    div.input-field.col.s12
+                        input.validate#writeHashTwo(type="text" name="hash")
+                        label(for="writeHashTwo") Код
+                    div.input-field.col.s2
+                        input(type="submit" class="btn waves-effect waves-light" value="подтвердить")
+        div.modal-footer
+            a(class="modal-action modal-close waves-effect waves-red btn-flat") OK
