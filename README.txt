@@ -6,7 +6,7 @@
 
 User:
 const UserSchema = new Schema({
-    password: String, //Нигде не выводить, не передовать и не юзать, он просто есть и все 5Y3XjiPcvyY2IxW222 - secret
+    password: String, //Нигде не выводить, не передовать и не юзать, он просто есть и все 5Y3XjiPcvyY2IxW222
     name: String,
     phone: String,
     email: String,
