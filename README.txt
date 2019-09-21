@@ -6,7 +6,7 @@
 
 User:
 const UserSchema = new Schema({
-    password: String, //Нигде не выводить, не передовать и не юзать, он просто есть и все
+    password: String, //Нигде не выводить, не передовать и не юзать, он просто есть и все 5Y3XjiPcvyY2IxW222 - secret
     name: String,
     phone: String,
     email: String,
@@ -15,7 +15,7 @@ const UserSchema = new Schema({
     dateOfCreation: String,
     date: String, //до какого дня продлён аккаунт
     lastLogin: String,
-    permissions: Number //права пользователя 5Y3XjiPcvyY2IxW222 - secret
+    permissions: Number //права пользователя 
 });
 
 Order:
