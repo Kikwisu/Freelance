@@ -54,7 +54,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: 'i need more beers',
+  secret: '85ZUk25OgXb2Wvkr',
   resave: false,
   saveUninitialized: false,
   // Место хранения можно выбрать из множества вариантов, это и БД и файлы и Memcached.
